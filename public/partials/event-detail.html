@@ -4,5 +4,14 @@
   </a>
   <event-item title="{{event.title}}" 
                 id="{{event.id}}" 
-                count="{{event.users.length}}" />
+                count="{{event.users.length}}">
+  </event-item>
+  <button ng-click="join()" 
+          ng-hide="joined">
+          Join
+  </button>
+  <button ng-click="leave()" 
+          ng-show="joined">
+          Leave
+  </button>
 </h1>
