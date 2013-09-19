@@ -1,0 +1,3 @@
+== README
+
+AngularJS presentation code for Ruby Ireland by Paul M. Watson <paul@paulmwatson.com>.
