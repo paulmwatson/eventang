@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Eventang::Application.config.secret_key_base = '85b70a222f160b60a048c6f5c20bab9b161295e6053d899018fcabe0f2f70bbafe09f8187389b80d10c4b9c8a546efa317285d4e61cbc33d1a9da521ba3bda67'
+Eventang::Application.config.secret_key_base = 'c2da41c8fd632b7b5733c593296256d48ca2ae3f0f8308bdd385d8b0f169d359112e0bc7ab88d8c94256816c0d0e4e1e789a626a52c1fa5f815df05dd07c0d63'
