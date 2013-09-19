@@ -1,0 +1,17 @@
+<h1>Events</h1>
+<ul>
+  <li ng-repeat="event in events | orderBy:'title'" ng-animate="animate">
+    <event-item title="{{event.title}}" 
+                id="{{event.id}}" 
+                count="{{event.users.length}}" />
+  </li>
+  <li>
+    <form ng-submit="create()">
+      <input  title="Event title" 
+              type="text" 
+              ng-model="title" 
+              placeholder="New event...">
+      <button class="event-setting-button">+</button>
+    </form>
+  </li>
+</ul>

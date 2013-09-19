@@ -1,0 +1,26 @@
+html, body
+{
+  color: #fff;
+  font-size: 12px;
+}
+
+html, body, ul, li, p, h1, h2, h3, h4, h5, h6, a, button, label, input, textarea
+{
+  background-color: transparent;
+  border-style: none;
+  color: inherit;
+  font-family: Arial, Sans-Serif;
+  font-size: inherit;
+  font-weight: normal;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type='text'], textarea, input[type='date']
+{
+  border: solid 1px #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 5px;
+}
