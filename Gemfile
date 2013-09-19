@@ -29,3 +29,6 @@ group :doc do
 end
 
 gem 'unicorn'
+
+gem "rmagick", "2.12.0", :require => 'RMagick'
+gem 'quilt'
