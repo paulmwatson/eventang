@@ -1,6 +1,6 @@
 <h1>
   <a  class="primary" href="#/events/">
-    &lt; Events
+    &lt; Rooms
   </a>
   <event-item title="{{event.title}}" 
                 id="{{event.id}}" 
@@ -19,7 +19,7 @@
 </h1>
 
 <ul>
-  <li class="message-new">
+  <li class="message-new" ng-show="joined">
     <form ng-submit="create_message()">
       <input  title="Message body" 
               type="text" 

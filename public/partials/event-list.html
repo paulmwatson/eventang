@@ -1,5 +1,5 @@
 <h1>
-  <span class="title">Events</span>
+  <span class="title">Rooms</span>
 </h1>
 <p class="hello">
   Hello, <identicon string="{{user.name}}" size="1"></identicon> {{user.name}}
@@ -8,10 +8,10 @@
 <ul>
   <li class="event-item-new">
     <form ng-submit="create()">
-      <input  title="Event title" 
+      <input  title="Room title" 
               type="text" 
               ng-model="title" 
-              placeholder="New event...">
+              placeholder="New room...">
     </form>
   </li>
   <li class="event-item" ng-repeat="event in events | orderBy:'title'">
