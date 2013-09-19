@@ -1,21 +1,22 @@
-<h1>Events</h1>
-<p>
+<h1>
+  <span class="title">Events</span>
+</h1>
+<p class="hello">
   Hello, <identicon string="{{user.name}}" size="1"></identicon> {{user.name}}
   <a href="sign_out" ng-hide="user.name == 'Agent Prism'">(Sign Out)</a>
 </p>
 <ul>
-  <li ng-repeat="event in events | orderBy:'title'" ng-animate="animate">
-    <event-item title="{{event.title}}" 
-                id="{{event.id}}" 
-                count="{{event.users.length}}" />
-  </li>
-  <li>
+  <li class="event-item-new">
     <form ng-submit="create()">
       <input  title="Event title" 
               type="text" 
               ng-model="title" 
               placeholder="New event...">
-      <button class="event-setting-button">+</button>
     </form>
+  </li>
+  <li class="event-item" ng-repeat="event in events | orderBy:'title'">
+    <event-item title="{{event.title}}" 
+                id="{{event.id}}" 
+                count="{{event.users.length}}" />
   </li>
 </ul>

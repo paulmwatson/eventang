@@ -18,23 +18,23 @@ function EventListCtrl($scope, Event, User) {
   var pusher = new Pusher('62877fc93f132dae8ec4');
   var channel = pusher.subscribe('events');
   channel.bind('create', function(data) {
-    Event.query({}, function(data) {
-      $scope.events = data;
+    $scope.$apply(function () {
+      $scope.events.unshift(angular.fromJson(data.message));
     });
   });
 
   $scope.create = function() {
     var event = new Event({title: this.title});
     event.$create();
-    $scope.events.unshift(event);
     this.title = '';
   };
 }
 
-function EventDetailCtrl($scope, $routeParams, Event, User) {
+function EventDetailCtrl($scope, $routeParams, Event, User, Message) {
   $scope.joined = false;
   $scope.user = null;
   $scope.event = null;
+  $scope.messages = Message.query({eventId: $routeParams.eventId});
 
   User.get({userId: 'me'}, function success(user) {
     Event.get({eventId: $routeParams.eventId}, function success(event) {
@@ -47,6 +47,14 @@ function EventDetailCtrl($scope, $routeParams, Event, User) {
       });
     });
   });
+
+  var pusher = new Pusher('62877fc93f132dae8ec4');
+  var channel = pusher.subscribe('messages');
+  channel.bind('create', function(data) {
+    $scope.$apply(function () {
+      $scope.messages.unshift(angular.fromJson(data.message));
+    });
+  });
   
   $scope.join = function() {
     $scope.event.$join();
@@ -56,5 +64,11 @@ function EventDetailCtrl($scope, $routeParams, Event, User) {
   $scope.leave = function() {
     $scope.event.$leave();
     $scope.joined = false;
+  }
+
+  $scope.create_message = function() {
+    var message = new Message({body: this.body});
+    message.$create({eventId: $scope.event.id});
+    this.body = '';
   }
 }

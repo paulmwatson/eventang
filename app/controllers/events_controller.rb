@@ -18,10 +18,6 @@ class EventsController < ApplicationController
   def create
     event = Event.create({title: params[:title]})
     render json: event
-    
-    require 'pusher'
-    Pusher.url = "http://62877fc93f132dae8ec4:3bbfce4976096d770454@api.pusherapp.com/apps/54576"
-    Pusher['events'].trigger('create', { message: event.to_json })
   end
 
   def join
@@ -29,6 +25,8 @@ class EventsController < ApplicationController
     user = User.find(session[:user_id])
     event.users << user
     render json: event.as_json(include: :users)
+
+    Message.create({event_id: event.id, user_id: user.id, body: "Just joined..."})
   end
 
   def leave
@@ -36,5 +34,7 @@ class EventsController < ApplicationController
     user = User.find(session[:user_id])
     event.users.destroy(user)
     render json: event.as_json(include: :users)
+
+    Message.create({event_id: event.id, user_id: user.id, body: "Just left..."})
   end
 end

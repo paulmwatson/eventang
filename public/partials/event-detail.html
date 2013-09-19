@@ -1,17 +1,35 @@
 <h1>
-  <a href="#/events/">
-    &lt;-
+  <a  class="primary" href="#/events/">
+    &lt; Events
   </a>
   <event-item title="{{event.title}}" 
                 id="{{event.id}}" 
                 count="{{event.users.length}}">
   </event-item>
-  <button ng-click="join()" 
+  <button class="secondary"
+          ng-click="join()" 
           ng-hide="joined">
           Join
   </button>
-  <button ng-click="leave()" 
+  <button class="secondary"
+          ng-click="leave()" 
           ng-show="joined">
           Leave
   </button>
 </h1>
+
+<ul>
+  <li class="message-new">
+    <form ng-submit="create_message()">
+      <input  title="Message body" 
+              type="text" 
+              ng-model="body" 
+              placeholder="Message...">
+    </form>
+  </li>
+  <li class="message-item"
+      ng-repeat="message in messages | orderBy:'-created_at'">
+    <identicon string="{{message.user.name}}" size="1"></identicon> {{message.user.name}}: 
+    {{message.body}}
+  </li>
+</ul>
