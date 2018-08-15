@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-ruby "1.9.3"
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.2.7.1'
 
 gem 'sqlite3', group: :development
 gem 'pg', group: :production
 
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 
 gem 'uglifier', '>= 1.3.0'
 
@@ -30,6 +30,6 @@ end
 
 gem 'unicorn'
 
-gem "rmagick", "2.12.0", :require => 'RMagick'
+#gem "rmagick", "2.12.2", :require => 'RMagick'
 gem 'quilt'
 gem 'pusher'
